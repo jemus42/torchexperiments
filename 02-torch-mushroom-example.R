@@ -2,21 +2,27 @@
 # Blogpost: https://blogs.rstudio.com/ai/posts/2020-11-03-torch-tabular/
 
 library(torch)
+cuda_is_available()
+
+
 library(purrr)
 library(readr)
 library(dplyr)
 library(ggplot2)
 library(ggrepel)
 
+
 torch_manual_seed(777)
 
 # Create dataset ----
 usethis::use_directory("data")
 
-download.file(
-  "https://archive.ics.uci.edu/ml/machine-learning-databases/mushroom/agaricus-lepiota.data",
-  destfile = here::here("data", "agaricus-lepiota.data")
-)
+if (!file.exists(here::here("data", "agaricus-lepiota.data"))) {
+  download.file(
+    "https://archive.ics.uci.edu/ml/machine-learning-databases/mushroom/agaricus-lepiota.data",
+    destfile = here::here("data", "agaricus-lepiota.data")
+  )
+}
 
 mushroom_data <- read_csv(
   here::here("data", "agaricus-lepiota.data"),

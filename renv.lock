@@ -473,10 +473,10 @@
     },
     "torch": {
       "Package": "torch",
-      "Version": "0.3.0",
+      "Version": "0.4.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "1cc5b49dfc8423c3df70ddd5f9852d34"
+      "Hash": "e831a43dbfca1fc4666c09b2f0f82059"
     },
     "torchvision": {
       "Package": "torchvision",
